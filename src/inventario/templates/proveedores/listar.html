@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Proveedores</title>
+</head>
+<body>
+    <h1>Listado de Proveedores</h1>
+    <a href="{% url 'crear_proveedor' %}">➕ Crear Proveedor</a>
+    <table border="1">
+        <tr>
+            <th>Nombre</th>
+            <th>Ciudad</th>
+            <th>Acciones</th>
+        </tr>
+        {% for prov in proveedores %}
+        <tr>
+            <td>{{ prov.nombre }}</td>
+            <td>{{ prov.ciudad }}</td>
+            <td>
+                <a href="{% url 'editar_proveedor' prov.id %}">✏️ Editar</a> |
+                <a href="{% url 'eliminar_proveedor' prov.id %}">❌ Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
